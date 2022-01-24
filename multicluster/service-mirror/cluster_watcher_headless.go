@@ -258,7 +258,7 @@ func (rcsw *RemoteClusterServiceWatcher) createHeadlessMirrorEndpoints(ctx conte
 			endpointMirrorName := rcsw.mirroredResourceName(addr.Hostname)
 			createdService, err := rcsw.createEndpointMirrorService(ctx, addr.Hostname, exportedEndpoints.ResourceVersion, endpointMirrorName, exportedService)
 			if err != nil {
-				rcsw.log.Errorf("error creating endpoint mirror service %s/%s for exported headless service %s: %v", endpointMirrorName, exportedService.Namespace, exportedServiceInfo, err)
+				rcsw.log.Errorf("error creating endpoint mirror service %s/%s for exported headless service %s: %v", exportedService.Namespace, endpointMirrorName, exportedServiceInfo, err)
 				continue
 			}
 
